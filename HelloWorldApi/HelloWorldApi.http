@@ -1,6 +1,13 @@
 @HelloWorldApi_HostAddress = http://localhost:5185
 
+# Test default greeting (no name parameter)
 GET {{HelloWorldApi_HostAddress}}/hello
+Accept: application/json
+
+###
+
+# Test personalized greeting with name
+GET {{HelloWorldApi_HostAddress}}/hello?name=John
 Accept: application/json
 
 ###

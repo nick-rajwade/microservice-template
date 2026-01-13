@@ -5,7 +5,8 @@ A simple .NET microservice template with a Hello World API endpoint.
 ## Features
 
 - Minimal .NET Web API
-- Hello World endpoint
+- Dynamic greeting endpoint with personalized responses
+- Variety of random greetings (Hello, Hi, Hey, Greetings, Welcome, Howdy, Good day)
 - OpenAPI documentation support
 - .NET 10.0 target framework
 
@@ -31,7 +32,10 @@ A simple .NET microservice template with a Hello World API endpoint.
 
 ### Endpoints
 
-- **GET /hello** - Returns "Hello World"
+- **GET /hello?name={name}** - Returns a dynamic greeting
+  - **Query Parameters:**
+    - `name` (optional): The name to greet. If not provided, defaults to "World"
+  - **Example:** `/hello?name=John` returns a random greeting like "Hi, John!" or "Welcome, John!"
 - **GET /openapi/v1.json** - OpenAPI specification (available in development mode)
 
 ### Testing the API
@@ -39,12 +43,18 @@ A simple .NET microservice template with a Hello World API endpoint.
 You can test the Hello World endpoint using curl:
 
 ```bash
+# Default greeting
 curl http://localhost:5185/hello
+
+# Personalized greeting
+curl "http://localhost:5185/hello?name=John"
 ```
 
-Expected response:
+Expected responses (greetings vary randomly):
 ```
-Hello World
+Hello, World!
+Hi, John!
+Welcome, John!
 ```
 
 ### Building the Project

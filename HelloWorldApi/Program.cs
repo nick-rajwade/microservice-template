@@ -14,7 +14,24 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/hello", () => "Hello World")
-    .WithName("GetHelloWorld");
+app.MapGet("/hello", (string? name) =>
+{
+    var greetings = new[]
+    {
+        "Hello",
+        "Hi",
+        "Hey",
+        "Greetings",
+        "Welcome",
+        "Howdy",
+        "Good day"
+    };
+    
+    var randomGreeting = greetings[Random.Shared.Next(greetings.Length)];
+    var userName = string.IsNullOrWhiteSpace(name) ? "World" : name;
+    
+    return $"{randomGreeting}, {userName}!";
+})
+.WithName("GetHelloWorld");
 
 app.Run();
