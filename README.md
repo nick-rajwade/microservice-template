@@ -27,7 +27,7 @@ A simple .NET microservice template with a Hello World API endpoint.
    dotnet run
    ```
 
-3. The API will be available at `https://localhost:5001` (or `http://localhost:5000`)
+3. The API will be available at `https://localhost:7253` (or `http://localhost:5185`)
 
 ### Endpoints
 
@@ -39,7 +39,7 @@ A simple .NET microservice template with a Hello World API endpoint.
 You can test the Hello World endpoint using curl:
 
 ```bash
-curl http://localhost:5000/hello
+curl http://localhost:5185/hello
 ```
 
 Expected response:
